@@ -1,0 +1,23 @@
+\usepackage{pgfkeys}
+\usepackage{xstring}
+
+\pgfkeys{
+    /konfusionsmatrixargs/.is family, /konfusionsmatrixargs,
+    default/.style = {postext={Ablehnung (positiv)}, negtext={Annahme (negativ)}},
+    postext/.store in = \postext,
+    negtext/.store in = \negtext
+}
+
+\newcommand{\konfusionstabular}[5][]{
+    \pgfkeys{/konfusionsmatrixargs, default, #1}
+    \begin{tabular}{cc|cc}
+        &&  \multicolumn{2}{c}{Vorhergesagt}\\
+        && \postext&\negtext\\
+        \hline
+        \multirow{4}{*}{\rotatebox[origin=c]{90}{Wahrheit}}
+        & \multicolumn{1}{c|}{\StrBefore{\postext}{ }}& \multirow{2}{*}{#2}& \multirow{2}{*}{#3}\\
+        &\multicolumn{1}{c|}{\StrBehind{\postext}{ }}&  & \\
+        &\multicolumn{1}{c|}{\StrBefore{\negtext}{ }}&  \multirow{2}{*}{#4}& \multirow{2}{*}{#5}\\
+        &\multicolumn{1}{c|}{\StrBehind{\negtext}{ }}&  & \\
+    \end{tabular}
+}

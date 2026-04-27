@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%  Document info  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\projname}{Master Thesis}
+\newcommand{\titel}{Titel der Masterarbeit}
+\newcommand{\untertitel}{Untertitel (optional)}
+\newcommand{\thesisname}{Master Thesis}
+\newcommand{\Datum}{TT. Monat JJJJ}
+\newcommand{\authorname}{Vorname Nachname}
+%%%%%%%%%%%%%%%%%%%  Document info  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{scrhack}
+\usepackage[hyphens]{url}
+\usepackage{wrapfig}
+\usepackage[table]{xcolor}
+\usepackage[font=footnotesize]{caption}
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{10pt}
+\usepackage{listings}
+
+\usepackage{makecell}
+\usepackage{array}
+\usepackage[ngerman]{varioref}
+\usepackage{float}
+\usepackage{enumitem}
+
+\newcolumntype{x}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcommand{\paragraphnl}[1]{\paragraph{#1}\mbox{}\\\vspace{-1cm}}
+\newcommand{\subparagraphnl}[1]{\subparagraph{#1}\mbox{}\\\vspace{-1cm}}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage{ae}
+  \usepackage{microtype}
+  \usepackage[pdftex]{graphicx}
+\else
+  \usepackage[dvips]{graphicx}
+\fi
+
+\usepackage[a4paper,%
+    inner=2.5cm,
+    outer=2.0cm,
+    top=1.5cm,
+    bottom=1.5cm,
+    footskip=1.0cm,
+    includeheadfoot
+]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{quotchap}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{lipsum}
+\usepackage{longtable}
+\usepackage{placeins}
+
+\usepackage[
+    backend=biber,
+    style=numeric,
+    natbib=true,
+    sorting=nty
+]{biblatex}
+
+\usepackage{listingsutf8}
+\usepackage{csquotes}
+
+\ifpdf
+  \usepackage{hyperref}
+  \definecolor{darkblue}{rgb}{0,0,.5}
+  \hypersetup
+    { colorlinks=true
+    , breaklinks=true
+    , linkcolor=black
+    , menucolor=black
+    , urlcolor=black
+    , citecolor=black
+    , pdftitle={\projname -- \untertitel}
+    , pdfsubject={\thesisname}
+    , pdfauthor={\authorname}
+    }
+\fi
+
+\addbibresource{sources.bib}
+
+\KOMAoptions{listof=totoc}
+\renewcommand{\lstlistlistingname}{List of Listings}
+\lstset
+  { basicstyle=\small\ttfamily
+  , breaklines=false
+  , captionpos=b
+  , showstringspaces=false
+  , inputencoding=utf8
+  }
+
+\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
+\renewcommand{\lstlistingname}{Quelltext}
+
+\definecolor{hlorange}{HTML}{ff6600}
+\definecolor{hlblue}{HTML}{111465}
+\definecolor{hlgrey}{HTML}{333333}
+\definecolor{hllightgrey}{HTML}{888888}
+\definecolor{codegreen}{rgb}{0.22, 0.85, 0.35}
+\definecolor{codeblue}{rgb}{0.22, 0.51, 0.85}
+\definecolor{codeyellow}{rgb}{0.61, 0.55, 0.04}
+\definecolor{codeorange}{rgb}{0.85, 0.69, 0.22}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codered}{rgb}{0.85, 0.22, 0.27}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{numbercolor}{rgb}{0.7,0.43,0}
+
+\usepackage{bera}
+\definecolor{eclipseStrings}{RGB}{42,0,255}
+\definecolor{eclipseKeywords}{RGB}{127,0,85}
+\colorlet{numb}{magenta!60!black}
+
+\lstset{aboveskip=0.25cm,belowskip=0pt}
+\renewcommand\theadfont{}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setlength{\marginparwidth}{2cm}
+
+\usepackage{todonotes}
+\usepackage[acronym,nogroupskip]{glossaries}
+\usepackage{cleveref}
+\usepackage{floatflt}
+
+\newcommand{\sref}[1]{\ref{#1} \textit{\nameref{#1}}}
+\crefname{figure}{Abbildung}{Abbildungen}
+\crefname{table}{Tabelle}{Tabellen}
+\crefname{chapter}{Kapitel}{Kapitel}
+\crefname{section}{Abschnitt}{Abschnitte}
+\crefname{equation}{Gleichung}{Gleichungen}
+
+\newglossary[tbl]{tablenames}{tbl}{tnd}{Datenbanktabllenverzeichniss}
+\makenoidxglossaries
+\renewcommand{\glossarysection}[2][]{}
+\newglossarystyle{superbold}{%
+  \setglossarystyle{super}%
+  \renewcommand*{\glsnamefont}[1]{\textbf{##1}}%
+}
+\newglossarystyle{customacronym}{%
+  \setglossarystyle{super}
+  \renewenvironment{theglossary}{%
+    \begin{longtable}{p{0.2\textwidth}p{0.75\textwidth}}%
+  }{\end{longtable}}%
+  \renewcommand*{\glossentry}[2]{%
+    \glstarget{##1}{\textbf{\glsentryshort{##1}}} & {\glsentrylong{##1}}
+    \ifthenelse{\equal{\glsentrydesc{##1}}{}}{}{ – \glsentrydesc{##1}}\\}%
+}
+
+\newcommand{\implyarrow}{%
+  \mathrel{\raisebox{1.3ex}{\rotatebox[origin=c]{90}{\mathhexbox37F}}}}

@@ -1,0 +1,64 @@
+\chapter{Einleitung}
+
+
+\section{Motivation}
+\gls{ki} gewinnt zunehmend an Bedeutung in der Industrie. 
+Im Jahr 2023 gaben 36\% der befragten deutschen Unternehmen in einer Umfrage an, \gls{ki} einzusetzen, wobei 92\% von ihnen über eine gesteigerte Effizienz berichteten \cite{StrandPartners2024}.
+Obwohl in vielen Bereichen \gls{ki} erfolgreich eingesetzt wird, bleibt die Frage bestehen, ob sie für jeden Anwendungsfall die beste Wahl ist.
+
+%Bei \gls{hl} gibt es ein Problem, das sich möglicherweise durch den Einsatz von KI lösen lässt: die Vorhersage von Waitinglist-Entscheidungen. 
+
+Bei \gls{hl} existiert ein Problem, welches auch potenziell von \gls{ki} optimiert werden kann: 
+Buchungen, bei denen nicht klar ist, ob sie auf ein Schiff mitgenommen werden oder nicht, landen auf einer Warteliste, die sogenannte Waitinglist. 
+In der aktuellen Praxis erfolgt die Entscheidung, ob eine Buchung von der Waitinglist angenommen oder abgelehnt wird, durch Mitarbeiter. Die Entscheidungen basieren auf Erfahrungswerten und Geschäftsregeln.
+Alleine im Dezember 2024 sind über $91.350$ Buchungen auf der Waitinglist gelandet und mussten von Mitarbeitern manuell abgearbeitet werden \cite{BALBOA2025}. 
+Es besteht also bei \gls{hl} ein großes Interesse die Mitarbeiter zu entlasten und gleichzeitig Kosten einzusparen. 
+
+%Warum bietet sich KI an?
+Die Entscheidungen, ob Buchungen auf der Waitinglist angenommen oder abgelehnt werden, konnten bis jetzt nicht von \gls{hl} mittels Regeln festgeschrieben werden, also sind regelbasierte Ansätze für das Problem ungeeignet. 
+Da es sich um geschäftskritische Entscheidungen handelt, soll auch weiterhin ein Mensch die Entscheidungen der Waitinglist treffen.
+Dieser könnte mit einer Vorhersage unterstützt werden, die eine Eintrittswahrscheinlichkeit enthält.
+Dies bildet also ein binäres Klassifikationsproblem \cite{wong2011comparing}.
+
+\section{Problemstellung und Zielsetzung}
+Die vorliegende Arbeit untersuchte die Möglichkeit, mittels \gls{ml}-Algorithmen Waitinglist-Entscheidungen vorherzusagen.
+
+Für binäre Klassifikationsprobleme mit solch einer Komplexität bieten sich statistische \gls{ml}-Algorithmen an \cite{Fraunhofer2018}. 
+Ziel dieser Arbeit ist also der Vergleich verschiedener statistischen \gls{ml}-Algorithmen.
+Dabei soll die Leistungsfähigkeit sowie der Implementierungsaufwand verglichen werden.
+
+Daraus bilden sich die folgenden zentralen Fragestellungen dieser Arbeit:
+\begin{itemize}[noitemsep]
+    \item Welche \gls{ml}-Algorithmen sind für das binäre Klassifikationsproblem einsetzbar?
+    \item Welche Leistungsfähigkeit zeigen diese \gls{ml}-Algorithmen?
+    \item Gibt es einen \gls{ml}-Algorithmus, der sich dabei als besonders geeignet herausstellt?
+\end{itemize}
+
+%\todo{--IW: Neurale Netze durch KI ersetzen}
+%Das sind alles KI-Lösungen, und zwar sogar Machine-Learning-Lösungen, d.h. statistische KI. Man sollte für einen unbedarften Leser erst mal begründen, warum statistische KI hier überhaupt sinnvoll ist (ist immer der Fall, wenn es kein gutes Vorhersagemodell gibt). Offensichtlich sollen Sie verschiedene KI-Lösungsmethoden gegeneinander abwägen.
+
+\section{Struktur dieser Arbeit}
+%Wissenensstand
+
+Zu Beginn der Arbeit war der Wissensstand zum Thema \gls{ml} nur grundlegend vorhanden. 
+Bei \gls{hl} wurde bis jetzt zu diesem Problem nicht geforscht. 
+Daher soll diese Arbeit von Grund auf dieses Thema aufarbeiten und dabei schauen, wie \gls{ml}-Techniken für das Problem konzeptionell implementiert werden können.
+Dafür wurden in der Arbeit mehrere \gls{ml}-Techniken implementiert und folgend verglichen. 
+Die Arbeit schließt mit einer kritischen Reflexion der Ergebnisse im Hinblick auf die eingangs formulierte Fragestellung und Zielsetzung sowie einem Ausblick auf mögliche Weiterentwicklungen ab.
+
+%\todo{IW: Welches Know-How ist schon vorhanden?: Keins! +Mehr}
+%IW: Das lässt darauf schließen, dass das Waitinglist-Problem bei HL im Moment überhaupt nicht mit einer KI gelöst wird. Ich hätte aus Ihrer einleitenden Bemerkung vermutet, dass Random-Forest-Methoden schon angewandt werden. Aber dann müssten Sie das ja nicht selber ausprobieren. Insofern sollten Sie klarstellen, dass Sie als Aufgabe haben, verschiedene KI-Lösungen zu vergleichen. Es spielt damit bei der Aufgabenstellung noch keine Rolle, welche Methoden das genau sind. Das können Sie im Grundlagenkapitel herausarbeiten.
+%Oder gab es die Vorgabe, genau diese beiden Methoden miteinander zu vergleichen? Wenn das so wäre und noch keine der Methode bereits angewendet wird, wäre diese Vorgabe etwas ungewöhnlich. Welches know-how liegt denn bei Ihren Auftraggebern vor? Das sollten Sie hier durchaus thematisieren.
+
+
+%\todo{IW: Schluss der Arbeit besser Zusammenfassen}
+%IW: Ich finde dieses Ziel absolut unwissenschaftlich, nicht praxisgerecht, und am Ende biegen Sie sich da noch eine Aussage zurecht, deren Sinn und Nutzen ich für HL nicht nachvollziehen kann.
+
+%Es werden die interne Gundlagen erklärt
+%Dann werden Theoretische Grundlagen der Techniken die verwendet werden erklärt
+%Dann wird die implmentation vorgestellt.
+% beinhaltet -> Problemstellung zu was bedeutet das für die Implementatino
+% Wie wurden die techniken verwednet -> warum wurde was gemacht
+%Dann ach wird die Implementation ausgewertet
+%Es werden die techniken verglichen
+%Fazid und ausblick

@@ -1,0 +1,104 @@
+\appendix
+\chapter{Anhang}
+\vspace{-1cm}
+\section{Tabellenübersicht}
+
+%\todo{IW: Tabllen auf Datenträger?}
+%Sind diese Tabellen auf dem elektronischen Datenträger? Dann sollte das hier erwähnt werden.
+Hierzu sind CSV-Dateien mit Beispieldaten von den Tabellen auf dem Datenträger verfügbar (Siehe \sref{sec:extdrive}). Diese Beispieldaten sind von 100 zufälligen Buchungen mit teilweise geschwänzten Spalten.
+
+\printnoidxglossary[type=tablenames, nonumberlist]
+\section{Tabellengrößenübersicht}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{ccccc}
+            \hline\hline
+             \thead{Tabelle}&  Fachlicher Name&  Silber-Zone Einträge&  Bronze-Zone Einträge&  Gefilterte Einträge\\
+             \hline
+             \gls{ts2390}&  Announcement Results&   64.780.236\label{ref:nv_ts2390_s} &   64.810.759 &   3.588.837 \\
+             \gls{ts1450}&  Transport Unit Points&   235.411.234 &   4.900.828.089 &   1.063.926.886 \\
+             \gls{ts0340}&  Shipments&   19.559.724 &   2.947.669.220\label{ref:nv_ts0340_b} &   495.985.080 \\
+             \gls{tt1850}&  Allocations&   40.263.166 &   358.945.843 &   159.816.410 \\
+             \gls{tf0750}&  Valuations&   365.499.547 &   2.199.611.332 &   387.841.791 \\
+             \hline\hline
+        \end{tabular}
+    }
+    \caption{Tabellengrößenübersicht}
+    \label{tab:tab_sizes}
+\end{table}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{cc|ccc}
+         \hline\hline
+\thead{Tabelle}& Fachlicher Name& \makecell{Silber-Zone zu\\ Bronze-Zone \\Anzahl}& \makecell{Silber-Zone zu \\ Bronze-Zone \\ Unterschied}& Filterreduktion\\
+\hline
+         \gls{ts2390}&  Announcement Results
+&  100,05\%
+&   61.221.922 &  94,46\%
+\\
+         \gls{ts1450}&  Transport Unit Points
+&  2081,82\%
+&   3.836.901.203 &  78,29\%
+\\
+         \gls{ts0340}&  Shipments
+&  15070,10\%
+&   2.451.684.140 &  83,17\%
+\\
+         \gls{tt1850}&  Allocations
+&  891,50\%
+&   199.129.433 &  55,48\%
+\\
+         \gls{tf0750}&  Valuations&  601,81\%
+&   1.811.769.541 &  82,37\%\\
+        \hline
+        \multicolumn{2}{c|}{Durchschnitt}& 3749,05\%& 1.672.141.248 &78,75\% \\
+        \hline\hline
+    \end{tabular}
+    }
+    \caption{Tabellengrößenunterschiede}
+    \label{tab:tab_sizes_diff}
+\end{table}
+\section{Datenträgerübersicht}
+\label{sec:extdrive}
+Dem Datenträger können die folgenden Daten entnommen werden:
+
+\begin{longtable}{p{8cm}|>{\raggedright\arraybackslash}p{7cm}}
+    \hline\hline
+    \thead{\textbf{Beschreibung}} & \textbf{Pfad} \\
+    \hline
+    \endfirsthead
+
+    % Kopfzeile für Folgeseiten
+    \hline\hline
+    \thead{\textbf{Beschreibung}} & \textbf{Pfad} \\
+    \hline
+    \endhead
+
+    % Fußzeile für alle außer der letzten Seite
+    \hline
+    \endfoot
+
+    % Letzte Fußzeile
+    \hline\hline
+    \endlastfoot
+    Diese Arbeit als PDF-Datei & /Arbeit.pdf \\
+    Verlauf der Ergebnisse der neuronalen Netze & /PyTorch\_NN\_Ergebnisse.xlsx \\
+    \hline
+    Notebook mit allen Queries zum Erstellen des Trainingsdatensatzes & /Datenaggregation/\hspace{0pt}Waitinglist\_Query.ipynb \\
+    Notebook mit allen Queries zum Erstellen des Beispieldatensatzes (/Datenaggregation/Beispiel\_Tabellen/) & /Datenaggregation/\hspace{0pt}Beispiel\_Tabellen\hspace{0pt}\_Waitinglist\_Query.ipynb \\
+    In diesem Verzeichnis können verwendete Tabellen via CSV-Dateien mit Beispieldaten entnommen werden. & /Datenaggregation/\hspace{0pt}Beispiel\_Tabellen/ \\
+    \hline
+    Notebook zur Durchführung der Korrelationsanalyse & /Korrelationsanalyse/\hspace{0pt}Korrelationsanalyse.ipynb \\
+    Korrelationsdaten, die mit dem Notebook der Korrelationsanalyse erstellt wurden & /Korrelationsanalyse/*.csv \\
+    \hline
+    Notebook mit der Implementierung der logistischen Regression & /Modell\_Training/\hspace{0pt}Logistische\_Regession\_sklearn.ipynb \\
+    Notebook mit der Implementierung des neuronalen Netzes & /Modell\_Training/\hspace{0pt}Neuronales\_Netz\_PyTorch.ipynb \\
+    Notebook mit der Implementierung des Random Forest & /Modell\_Training/\hspace{0pt}Random\_Forest\_sklearn.ipynb \\
+    Notebook mit der Implementierung eines neuronalen Netzes mit Grid Training & /Modell\_Training/Neuronales\_Netz\hspace{0pt}\_PyTorch\_Grid\_Versuch.ipynb \\
+    \hline
+    Notebook in dem Aktivierungsfunktionen für die Visualisierung erzeugt wurden & /Plotten/\hspace{0pt}Aktivierungsfunktionen.ipynb \\
+    Notebook in dem Fehlerkurven erzeugt wurden & /Plotten/\hspace{0pt}Plotten.ipynb \\
+    In diesem Verzeichnis sind CSV-Dateien für Plotten.ipynb & /Plotten/models/ \\
+\end{longtable}

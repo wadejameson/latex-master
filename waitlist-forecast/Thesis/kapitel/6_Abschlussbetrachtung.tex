@@ -1,0 +1,75 @@
+
+
+\chapter{Abschlussbetrachtung}
+%Todo: Text
+\section{Fazit}
+Die vorliegende Arbeit untersuchte die Möglichkeit, Waitinglist-Entscheidungen mittels \gls{ml} vorherzusagen. 
+
+%\todo{IW: Ziel in Einleitung übernehemn}
+%Dieses Ziel enstpricht dem wahren Ziel Ihrer Arbeit und hätte genau so in der Einleitung formuliert werden müssen.
+%In der Einleitung haben Sie dagegen das Ziel gestellt, ob neuronale Netze etwas bringen. Sie sollten das oben also umformulieren: Was bringt KI, um Waitinglist-Entscheidungen vorherzusagen?
+%Sie könnten erst mal begründen, warum die statistische KI hier mehr bringt als die regelbasierte (weil es keine guten Vorhersagemodelle gibt). Und dann vergleichen Sie die beiden Methoden Neuronale Netze und Random-Forest, wobei Letzteres als der eindeutige Sieger hervorgeht. Ich kann bei Ihnen keine schlüssige Begründung finden, warum man neuronale Netze benutzen sollte.
+
+Insbesondere wurde der Einsatz neuronaler Netze mit einem Random Forest-Modell und der logistischen Regression verglichen. Die Motivation für diese Arbeit war, die hohe Anzahl manueller Entscheidungen, die im aktuellen Waitinglist-Prozess getroffen werden müssen, durch \gls{ml}-Methoden effizienter zu gestalten.
+
+Im Rahmen der Untersuchung wurde ein umfassender Datensatz aus historischen Entscheidungsprozessen aggregiert und für das Training von \gls{ml}-Modellen genutzt. 
+
+Die Untersuchungen zeigten, dass die logistische Regression keine präzisen Vorhersagen liefern konnte.
+Im Gegensatz dazu erzielten sowohl das neuronale Netz als auch das Random Forest-Modell deutlich bessere Ergebnisse mit höherer Vorhersagegenauigkeit.
+Das Random Forest-Modell weist mit einer Genauigkeit von $93\text{,}53\%$ und einem hohen F1-Wert von $89\text{,}27\%$ sowohl eine hohe Präzision ($92\text{,}37\%$) als auch eine gute Sensitivität ($86\text{,}37\%$) auf.  
+Die Leistung des neuronalen Netzes wäre ebenfalls ausreichend, um eine Empfehlung für die Mitarbeiter zu ermöglichen, jedoch war es deutlich komplexer in der Implementierung und zeigte dazu eine schlechtere Leistung: Es benötigte das Vielfache an Trainingszeit bei schlechterer \hyperref[sec:model_results]{Vorhersagefähigkeit}. 
+
+%    \item Welche \gls{ml}-Techniken sind für das Problem sinnvoll?
+%    \item Wie Leistung zeigen diese \gls{ml}-Techniken?
+%    \item Gibt es eine \gls{ml}-Technik, die sich dabei als besonders geeignet rausstellt?
+
+Ein zentrales Ergebnis der Arbeit ist also, dass sich \gls{ml}-Modelle für die Vorhersage von Waitinglist-Entscheidungen eignen.
+Durch die Implementierung eines \gls{ml}-Modells könnte also ein Waitinglist-Bearbeiter mit einer Vorhersage unterstützt werden.
+%Gibt es eine \gls{ml}-Technik, die sich dabei als besonders geeignet rausstellt?
+Dabei hat sich gezeigt, dass ein weniger komplexes Random Forest-Modell am besten Vorhersagen zu Waitinglist-Entscheidungen treffen kann.
+
+Trotz der positiven Ergebnisse gibt es Einschränkungen, die berücksichtigt werden müssen. 
+Zum einen wurde die Arbeit lediglich als Konzept mit einem Datensatz umgesetzt, ohne die Integration in die \gls{hl}-Architektur zu berücksichtigen.
+Des Weiteren könnte möglicherweise eine gezieltere Auswahl und Aufbereitung der Merkmale durch weiteres Feature Engineering die Datenqualität und damit die Modellleistung positiv beeinflussen.
+
+%Zum einen könnte die Datenqualität durch weiteres Feature Engineering weiter verbessert werden.
+
+%Zusammenfassend stelle die Analyse heraus, dass \gls{ml}-Techniken für die Vorhersage von Waitinglist-Entscheidungen geeignet sind. 
+
+%Es wurde eine Vorhersage mit Wahrscheinlichkeiten mittels \gls{ml}-Methoden erreicht, die hervorragende Leistungen erbringt.  
+ 
+
+\section{Ausblick}
+Aufbauend auf den Erkenntnissen dieser Arbeit gibt es mehrere vielversprechende Richtungen für zukünftige Forschungen und Weiterentwicklungen. Ein erster Ansatz wäre, die Daten, welche für das Training des Modells verwendet werden, weiter aufzubereiten. 
+Das Feature Engineering in der Arbeit könnte damit besser erweitert werden und damit vielleicht die Leistung der Modelle noch verbessern.
+Das neuronale Netz kann auch noch weiter entwickelt werden, denn die Parameter wurden im Laufe des Zeitraumes optimiert, das heißt aber nicht, dass dies die optimal möglichen Parameter sind. 
+%vielleicht early stop.
+Um die Parameter besser zu optimieren, sollte ein \enquote{Grid Training} implementiert werden, welches aus Zeitgründen nicht weiter verfolgt wurde. 
+Dabei sollte auch ein \enquote{Early Stop} integriert werden, damit die Trainingszeit sowie das Overfitting minimiert werden.
+
+%\todo{J: was ist mit early stop gemeint und was ist grid training? Vielleicht nur ein zwei Sätze dazu}
+Es sollte auch noch eine notwendige Frage geklärt werden: Sind die vergangenen Entscheidungen auch in der Zukunft noch valide? 
+Das bedeutet, das Modell wurde aus den Entscheidungen aus den Jahren $2023$ und $2024$ trainiert. 
+Es ist also nicht klar, ob in der Zukunft die gleichen Faktoren eine Rolle spielen, genauer gesagt, ob die Entscheidungen in Zukunft anders entstehen werden.
+
+Im Falle der Integration von Modellen in die \gls{hl}-Landschaft, muss zunächst geklärt werden, wie die Implementierung in die bestehende Architektur realisiert werden kann. 
+Bei \gls{hl} gibt es viele Standards, die eingehalten werden müssen. 
+Aufgrund der zeitlichen Begrenzung dieser Arbeit war die Untersuchung, wie ein kontinuierliches Training des Netzes integriert werden könnte, nicht Bestandteil.
+Da die Mitarbeiter die Waitinglist weiterhin manuell bearbeiten sollen, wäre es sinnvoll, auch die neuen Entscheidungen in das Training einzubeziehen.
+
+Im Laufe des Projektes kam noch ein weiterer Anwendungsfall für das Modell auf. 
+Es würde sich anbieten, dem Kunden vor dem Aufgeben der \gls{quote} eine Einschätzung zu geben, ob eine Bestellung direkt angenommen oder abgelehnt würde. 
+Darauf wurde nicht weiter eingegangen, würde aber auch eine interessante Gelegenheit für \gls{hl} bieten, sich von der Konkurrenz abzuheben und dabei das Kundenerlebnis bei der Buchung zu verbessern.
+%\todo{IW: Was ist eine kundenerlebniss?}
+%Was ist denn in diesem Zusammenhang ein "Kundenerlebnis"? Hat der Kunde hier Emotionen?
+%Ich würde davon ausgehen, dass der Kunde das einzige Interesse hat, dass seine Ware so schnell, günstig und sicher wie möglich zum Ziel gelangt. Ich wüsste nicht, warum er mit Beruhigungspillen zufriedener gestellt werden sollte. Sie haben als Kunden doch hier keine individuellen Menschen, die bespaßt werden wollen, sondern Firmen, die harte wirtschaftliche Interessen vertreten.
+
+%\todo{IW: FAZIT}
+%Mein Fazit nach Lesen dieser Arbeit ist:
+%Sie haben verschiedene Ansätze ausprobiert, mit KI Vorhersagen für eine Waitinglist zu machen (wobei mir unklar geblieben ist, was da vorhergesagt werden soll), und das hat sich als erfolgreich herausgestellt. Als bestes Verfahren entpuppte sich Random Forest.
+%Mir ist unklar, warum Sie sich so sehr für neuronale Netze ins Zeug gelegt haben. Haben die irgendwelche Vorteile gegenüber Random Forest? "Komplizierter" wäre für mich keiner, eher ein weiterer Nachteil. Aber vielleicht sehen Sie ja andere Vorteile. Genannt haben Sie hier keine.
+
+%Richte integration in hapag
+%besseres feature engeneering
+%weitere optimierung des nn: bsp. early stop
+%mehr zeit, würde bei der optimierung helfen, da dies nur konzeptionell schauen soll wie weit man kommt

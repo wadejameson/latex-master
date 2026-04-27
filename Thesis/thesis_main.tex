@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass
+  [ 12pt
+  %twoside            % beidseitiger Druck
+  , openright          % Kapitel beginnen auf einer rechten Seite
+  , listof=totoc       % Verzeichnisse im Inhaltsverzeichnis
+  , bibliography=totoc % Literaturverzeichnis im Inhaltsverzeichnis
+  , parskip=full       % Absätze durch einen vergrößerten Zeilenabstand getrennt
+%  , draft              % Entwurfsversion
+  ]{scrreprt}          % Dokumentenklasse: KOMA-Script Buch
+
+\input{Thesis/stuff/header}
+\input{Thesis/stuff/Konfusionsmatrix}
+
+\input{Thesis/stuff/Abkuerzungen}
+\input{Thesis/stuff/DBTabellen}
+
+
+\begin{document}
+
+\pagenumbering{Roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Todo List
+%\listoftodos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Titelseite
+\newgeometry{left=3cm,right=2cm,top=2.0cm,bottom=2.0cm}
+\include{Thesis/stuff/Titelseite}
+\restoregeometry
+
+%%%%
+%
+\include{Thesis/stuff/Sperrvermerk}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Mehr Platz für Nummerierung benötigt in Verzeichnissen, wenn ein Kapitel 10 oder mehr Bilder hat
+\DeclareTOCStyleEntry[numwidth=3em]{tocline}{figure} % Für Abbildungsverzeichnis
+%\DeclareTOCStyleEntry[numwidth=3em]{tocline}{table} % Für Tabellenverzeichnis
+
+\tableofcontents
+
+%%%%%%%
+%
+\clearpage
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\printnoidxglossary[type=acronym, style=customacronym, nonumberlist]
+%%%%%%
+\listoffigures
+\listoftables
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+
+\begin{onehalfspace}
+\include{Thesis/kapitel/0_Abstract}
+\include{Thesis/kapitel/1_Einleitung}
+\include{Thesis/kapitel/2_F_Grundlagen}
+\include{Thesis/kapitel/3_T_Grundlagen}
+\include{Thesis/kapitel/4_Implementierung}
+\include{Thesis/kapitel/5_Auswertung}
+\include{Thesis/kapitel/6_Abschlussbetrachtung}
+\include{Thesis/kapitel/Anhang}
+\include{Thesis/stuff/Hilfsmittel}
+\end{onehalfspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\printbibliography{} % create with BibTeX, gives "chapter without number" warning in log
+
+\include{Thesis/stuff/Eidesstattliche_Erklaerung}
+
+\end{document}
