@@ -9,11 +9,11 @@
 %  , draft              % Entwurfsversion
   ]{scrreprt}          % Dokumentenklasse: KOMA-Script Buch
 
-\input{Thesis/stuff/header}
-\input{Thesis/stuff/Konfusionsmatrix}
+\input{stuff/header}
+\input{stuff/Konfusionsmatrix}
 
-\input{Thesis/stuff/Abkuerzungen}
-\input{Thesis/stuff/DBTabellen}
+\input{stuff/Abkuerzungen}
+\input{stuff/DBTabellen}
 
 
 \begin{document}
@@ -28,12 +28,12 @@
 
 % Titelseite
 \newgeometry{left=3cm,right=2cm,top=2.0cm,bottom=2.0cm}
-\include{Thesis/stuff/Titelseite}
+\include{stuff/Titelseite}
 \restoregeometry
 
 %%%%
 %
-\include{Thesis/stuff/Sperrvermerk}
+\include{stuff/Sperrvermerk}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -59,21 +59,21 @@
 \pagenumbering{arabic}
 
 \begin{onehalfspace}
-\include{Thesis/kapitel/0_Abstract}
-\include{Thesis/kapitel/1_Einleitung}
-\include{Thesis/kapitel/2_F_Grundlagen}
-\include{Thesis/kapitel/3_T_Grundlagen}
-\include{Thesis/kapitel/4_Implementierung}
-\include{Thesis/kapitel/5_Auswertung}
-\include{Thesis/kapitel/6_Abschlussbetrachtung}
-\include{Thesis/kapitel/Anhang}
-\include{Thesis/stuff/Hilfsmittel}
+\include{kapitel/0_Abstract}
+\include{kapitel/1_Einleitung}
+\include{kapitel/2_F_Grundlagen}
+\include{kapitel/3_T_Grundlagen}
+\include{kapitel/4_Implementierung}
+\include{kapitel/5_Auswertung}
+\include{kapitel/6_Abschlussbetrachtung}
+\include{kapitel/Anhang}
+\include{stuff/Hilfsmittel}
 \end{onehalfspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \printbibliography{} % create with BibTeX, gives "chapter without number" warning in log
 
-\include{Thesis/stuff/Eidesstattliche_Erklaerung}
+\include{stuff/Eidesstattliche_Erklaerung}
 
 \end{document}
